@@ -1,25 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Home from './components/Home';
+import Login from './components/Login';
+import Register from './components/Register';
+import UserProfile from './components/UserProfile';
+import PageNotFound from './components/PageNotFound';
+import SinglePost from './components/SinglePost';
+import Messages from './components/Messages';
+import Earning from './components/Earning';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div>
+        <Switch>
+          <Route path="/" component={Home} exact />
+          <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
+          <Route path="/profile/:userId" component={UserProfile} />
+          <Route path="/profile" component={UserProfile} />
+          <Route path="/post/:postId" component={SinglePost} />
+          <Route path="/messages" component={Messages} />
+          <Route path="/earning" component={Earning} />
+          <Route component={PageNotFound} />
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 
