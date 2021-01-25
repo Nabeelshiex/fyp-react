@@ -52,9 +52,8 @@ export const GET_BAR_CHART_EARNING = "GET_BAR_CHART_EARNING";
 export const NUMERIC_EARNING = "NUMERIC_EARNING";
 export const TOGGLE_ADD_NEW_POST_CARD = "TOGGLE_ADD_NEW_POST_CARD";
 export const IS_REVIEW_SUBMITTED = "IS_REVIEW_SUBMITTED";
-
-const API_URL = "https://fyp-database.herokuapp.com/public/index.php";
-// const API_URL = "http://127.0.0.1:8000";
+export const API_URL = "https://fyp-database.herokuapp.com/public/index.php";
+// export const API_URL = "http://127.0.0.1:8000";
 
 export function toggleLinearProgress() {
   return {
@@ -89,7 +88,7 @@ export function addUser(user) {
         dispatch({
           type: USER_REGISTERED,
         });
-        console.log(res?.data.message);
+        console.alert(res?.data.message);
       })
       .catch((error) => {
         console.log(error.response?.data.message);
