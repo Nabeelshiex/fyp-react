@@ -51,6 +51,7 @@ export const GET_PIE_CHART_EARNING = "GET_PIE_CHART_EARNING";
 export const GET_BAR_CHART_EARNING = "GET_BAR_CHART_EARNING";
 export const NUMERIC_EARNING = "NUMERIC_EARNING";
 export const TOGGLE_ADD_NEW_POST_CARD = "TOGGLE_ADD_NEW_POST_CARD";
+export const IS_REVIEW_SUBMITTED = "IS_REVIEW_SUBMITTED";
 
 const API_URL = "https://fyp-database.herokuapp.com";
 
@@ -73,7 +74,7 @@ export function login(userData) {
         });
       })
       .catch((error) => {
-        alert(error.response?.data.message);
+        alert(error.response.data.message);
       });
   };
 }
@@ -762,6 +763,38 @@ export function getNumericEarning() {
     request.then((res) => {
       dispatch({
         type: NUMERIC_EARNING,
+        payload: res.data,
+      });
+    });
+  };
+}
+
+export function createReview(data) {
+  let token = localStorage.getItem("token");
+
+  const request = axios.post(`${API_URL}/api/auth/review?token=${token}`, data);
+
+  return (dispatch) => {
+    request.then((res) => {
+      dispatch({
+        type: IS_REVIEW_SUBMITTED,
+        payload: true,
+      });
+    });
+  };
+}
+
+export function checkReview(postId) {
+  let token = localStorage.getItem("token");
+
+  const request = axios.get(
+    `${API_URL}/api/auth/review/check-review?token=${token}&postId=${postId}`,
+  );
+
+  return (dispatch) => {
+    request.then((res) => {
+      dispatch({
+        type: IS_REVIEW_SUBMITTED,
         payload: res.data,
       });
     });
