@@ -89,6 +89,7 @@ export function addUser(user) {
         dispatch({
           type: USER_REGISTERED,
         });
+        console.log(res?.data.message);
       })
       .catch((error) => {
         console.log(error.response?.data.message);
