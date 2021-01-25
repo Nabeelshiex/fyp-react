@@ -2,10 +2,6 @@
   "name": "fyp-react",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "npm": "6.14.8",
-    "node": "14.15.0"
-  },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
@@ -17,9 +13,12 @@
     "braintree": "^2.24.0",
     "braintree-web-drop-in": "^1.23.0",
     "braintree-web-drop-in-react": "^1.1.2",
+    "express": "^4.17.1",
+    "express-favicon": "^2.0.1",
     "formik": "^2.1.5",
     "mdbreact": "^4.27.0",
     "notistack": "^0.9.17",
+    "path": "^0.12.7",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.1",
@@ -32,7 +31,7 @@
     "yup": "^0.29.3"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
